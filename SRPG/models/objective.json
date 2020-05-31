@@ -1,0 +1,89 @@
+{
+  "type": "combined",
+  "name": "combined objective",
+  "subObjectives": [
+	{
+	  "type": "combined",
+	  "name": "combat triangle",
+	  "weight": 5,
+	  "subObjectives": [
+	      {
+		  "type": "atomic",
+	          "name": "warrior trumps ranger",
+		  "generatorRef": "jobadv_war_rng.json",
+		  "function": {
+		      "type": "expectedWin",
+		      "expectedWinRate": 0.8
+		  }
+	      },
+	      {
+		  "type": "atomic",
+	          "name": "ranger trumps mage",
+		  "generatorRef": "jobadv_rng_mag.json",
+		  "function": {
+		      "type": "expectedWin",
+		      "expectedWinRate": 0.8
+		  }
+	      },
+	      {
+		  "type": "atomic",
+	          "name": "mage trumps warrior",
+		  "generatorRef": "jobadv_mag_war.json",
+		  "function": {
+		      "type": "expectedWin",
+		      "expectedWinRate": 0.8
+		  }
+	      }
+	  ],
+	  "combinator": "Max"  
+	},
+	{
+	  "type": "combined",
+	  "name": "helpful supporters",
+	  "weight": 1,
+	  "subObjectives": [
+	      {
+		  "type": "atomic",
+	          "name": "cleric trumps none",
+		  "generatorRef": "jobadv_cleric_only.json",
+		  "function": {
+		      "type": "expectedWin",
+		      "expectedWinRate": 0.9
+		  }
+	      },
+	      {
+		  "type": "atomic",
+	          "name": "advantageous cleric",
+		  "generatorRef": "jobadv_with_cleric.json",
+		  "function": {
+		      "type": "expectedWin",
+		      "expectedWinRate": 0.7
+		  }
+	      }
+	  ],
+	  "combinator": "Max"  
+	},
+	{
+	  "type": "atomic",
+	  "name": "no first mover advantage",
+	  "weight": 1,
+	  "generatorRef": "no_constraints.json",
+	  "function": {
+	      "type": "expectedWin",
+	      "expectedWinRate": 0.5
+	  }
+	},
+	{
+	  "type": "atomic",
+	  "name": "moderate damage",
+	  "weight": 3,
+	  "generatorRef": "no_constraints.json",
+	  "function": {
+	      "type": "damageFraction",
+	      "damageFractionPenalties" : [1.0,0.01,0.0,0.01,0.05,0.8,1.0,1.0,1.0,1.0]
+	  }
+	}
+  ],
+  "combinator": "Max"  
+}
+

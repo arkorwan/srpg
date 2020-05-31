@@ -1,0 +1,59 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{lmodern} %Latin Modern
+\usepackage[hyphens]{url}
+\usepackage{biblatex}
+\bibliography{ref.bib}
+
+\begin{document}
+	
+\section*{Procedural Generation of Strategy RPG Battle Systems}
+
+\begin{verbatim}
+Researcher: Worakarn Isaratham, 140024714
+Supervisor: Ian Miguel
+\end{verbatim}
+	
+\section*{Project Description}
+
+Procedural Generation refers to a method of generating data algorithmically, rather than manually. Applying to game content, Procedural Content Generation (PCG) is defined as the algorithmic creation of game content with limited or indirect user input\cite{pcgbook}. Common application of this technique is used to generate game levels, maps, artefacts, monsters, terrain, textures, among others.
+
+Strategy role-playing (also known as tactical role-playing) is a sub-genre of role-playing games (RPG) that incorporates tactical elements from strategy games. Classic examples of the genre include \textit{Final Fantasy Tactics}, \textit{Fire Emblem} and \textit{Disgaea} franchises\cite{web-playingroles}. In these games, the focus is on battle scenes, which usually take place on a square or isometric grid. In the battles, players take turns controlling each of their units, moving them around and attacking or defending from each other. The complexity of the game rises from the range of types of moves and actions each unit can perform. It is crucial that these moves and actions, which we collectively call the \textit{battle system}, are in balance. Battle systems are usually fine-tuned by hand, whereas in this project they will be generated automatically and algorithmically by Procedural Generation.
+
+\section*{Objectives}
+
+\subsection*{Primary:}
+
+\begin{itemize}
+	\item A Procedural-Generation program that generates balanced battle systems for strategy RPG games. The generated system is to be used in battles between two parties of units. A party wins only when all opponent units are removed; no other winning conditions are considered. 
+	
+	A unit has a set of basic character statistics (e.g. strength, intelligence, wisdom, dexterity, constitution). The unit's apparent abilities (hit points, magic points, attack power, move range, etc.) are to be derived from these basic statistics.
+	
+	The battle strategy should support at least the following types of actions: melee (physical short-ranged) attack, physical long-ranged attack, magical attack, and healing.
+	
+	\item An AI engine is required as a part of the evaluation process. It must be generic enough to play the game for any generated battle systems, in a reasonably competent manner.
+	
+	\item A test harness for the generated systems, that allows battles between human and/or AI players to be played. A user interface is required for humans to interact with the system, though it does not have to be sophisticated one. (A command line interface would suffice).
+	
+\end{itemize}
+
+\subsection*{Secondary:}
+	
+\begin{itemize}
+	\item A graphical user interface that presents the battles in square or isometric view.
+	\item Incorporation of difference in height and terrain type of each tile into calculation. (Melee attack cannot reach higher tiles, water slows units down, lava  drains hit points from units, etc.)
+	\item Support different races and/or jobs for the units, which would boost or limit some certain character statistics. (Thieves receive bonus dexterity points, elves are limited in strength, etc.)
+	\item Support magical spells other than attack and healing e.g. protection, resurrection, status abnormality.
+\end{itemize}
+
+\section*{Ethical Concerns}
+
+None.
+
+\section*{Resources}
+
+The project will be developed on the school lab machines and the researcher's personal laptop. No other additional resources are required.
+
+\printbibliography
+
+\end{document}   

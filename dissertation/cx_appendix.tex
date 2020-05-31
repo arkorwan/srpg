@@ -1,0 +1,144 @@
+\chapter{List of all derived attributes}
+\label{app:attributes}
+
+Derived character attributes are functions of one or two of the five basic attributes: STR -- strength, CON -- constitution, INT -- intelligence, WIS -- wisdom, DEX -- dexterity. 
+
+\begin{tabu}{X[l2] X[l2] X[l4] }
+	\toprule
+	attribute & derived from & effects \\ 
+	\midrule
+	hit point (HP) & CON& Health point of the unit. Reduced upon being attacked.\\
+	\addlinespace[0.2cm]
+	magic point (MP) & WIS, INT& Spent to cast magic spells.\\
+	\addlinespace[0.2cm]
+	physical attack & STR, CON& Used to calculate damage when the unit is attacking physically.\\
+	\addlinespace[0.2cm]
+	physical defence & CON, STR& Used to calculate damage when the unit is being attacked physically.\\
+	\addlinespace[0.2cm]
+	magical attack & INT, STR& Used to calculate damage when the unit is doing magical attack.\\
+	\addlinespace[0.2cm]
+	magical defence & WIS, CON& Used to calculate damage when the unit is being attacked by magic.\\
+	\addlinespace[0.2cm]
+	evasion & INT, DEX& Used to calculate the chance of the attack being a hit or a miss.\\
+	\addlinespace[0.2cm]
+	speed & DEX& Used to calculate which unit get the next turn.\\
+	move range & DEX, STR& Limit the number of cells the unit can move in a turn.\\
+	\bottomrule
+\end{tabu}
+
+Derived weapon and armour attributes are functions of one or two of the material attributes: STR -- strength, CRF -- craftsmanship, PLS -- plasticity, ENC -- enchantment.
+
+\bigskip
+Weapon attributes:
+
+\begin{tabu}{X[l2] X[l2] X[l4] }
+	\toprule
+	attribute & derived from & effects \\ 
+	\midrule
+	physical enhancement & STR, CRF & Enhancing physical attack.\\
+	\addlinespace[0.2cm]
+	magical enhancement & ENC & Enhancing magical attack.\\
+	\bottomrule
+\end{tabu}
+
+\bigskip
+Armour attributes:
+
+\begin{tabu}{X[l2] X[l2] X[l4] }
+	\toprule
+	attribute & derived from & effects \\ 
+	\midrule
+	physical enhancement & PLS, CRF & Enhancing physical defence.\\
+	\addlinespace[0.2cm]
+	magical enhancement & ENC & Enhancing magical defence.\\
+	\bottomrule
+\end{tabu}
+
+\chapter{Building and running the solution}
+
+\section{Build from source files}
+
+System requirements for the build machine:
+\begin{itemize}
+	\item Apache Maven. We tested with version 3.2.5.
+	\item Java Development Kit 8.
+\end{itemize}
+
+To build the solution, simply navigate from the command line to the project root folder, the one containing \texttt{pom.xml} file. Then enter this command:
+\begin{tcolorbox}
+	\texttt{mvn package}
+\end{tcolorbox}
+This would compile the source files, run a \textit{TestNG} test suite, and package into 2 .jar files, one with dependencies included and one without.
+
+\section{Run}
+
+System requirements for the executing machine:
+\begin{itemize}
+	\item Java Runtime Environment 8.
+\end{itemize}
+
+The build process would package the whole solution into a .jar file, named \texttt{SRPG-<version>-jar-with-dependencies.jar}. For conciseness we will refer to this file as \texttt{SRPG.jar}.
+
+The program can be run in 4 different modes.
+
+\paragraph{Volunteer mode.} This is the mode intended to be used by the volunteers to evaluate the battle systems. By double-clicking on the .jar file (on systems that support launching by double-clicking), or running from the command line:
+\begin{tcolorbox}
+	\texttt{java -jar SRPG.jar}
+\end{tcolorbox}
+This would launch the evaluation process, as described in section \ref{sub:guiextension}.
+
+\paragraph{Observation mode.} This is the original mode from phase \rom{1} of the implementation. It is retained for the use of testing and observing AI behaviours. To use this mode, enter the following to the command line:
+\begin{tcolorbox}
+	\texttt{java -jar SRPG.jar observe [options]}
+\end{tcolorbox}
+where the options are:
+\begin{itemize}
+	\item \texttt{-system [path to battle system]} -- the battle system to observe
+\end{itemize}
+This would launch a screen where the two players can be selected. Click `start', and the battle screen will be displayed.
+
+\paragraph{Battle system evaluation mode.} This is used to evaluate a battle system against an objective, as we have done in section \ref{sub:meth}. To use this mode, enter the following to the command line:
+\begin{tcolorbox}
+	\texttt{java -jar SRPG.jar eval [options]}
+\end{tcolorbox}
+where the options are:
+\begin{itemize}
+	\item \texttt{-system [path to battle system]} -- the battle system to evaluate
+	\item \texttt{-count [number]} -- the number of battles to be simulated (default: 10)
+	\item \texttt{-turnsLimit [number]} -- the maximum turns allowed for a battle before it would be judged as a draw. If not present, the battles would be allowed to go on as long as it needs, potentially forever.
+	\item \texttt{-objective [path to the objective file]} -- the objective tree
+	\item \texttt{-seed [number]} -- the random seed to be used in this process (default: 0)
+\end{itemize}
+
+Running the program in this mode would print a detailed evaluation for all sub-objectives in the objective tree to the standard output.
+
+\paragraph{Genetic algorithm mode.} This mode runs the genetic algorithm process to create a balanced battle system. To use this mode, enter the following to the command line:
+\begin{tcolorbox}
+	\texttt{java -jar SRPG.jar ga [options]}
+\end{tcolorbox}
+where the options are:
+\begin{itemize}
+	\item \texttt{-count [number]} -- the number of battles to be simulated for each matchup (default: 10)
+	\item \texttt{-turnsLimit [number]} -- the maximum turns allowed for a battle before it would be judged as a draw. Like in the evaluation mode, it is possible to omit this option, but this is strongly not recommended, as it could easily stall the whole GA process.
+	\item \texttt{-objective [path to the objective file]} -- the objective tree (default: models/objective.json)
+	\item \texttt{-seed [number]} -- the random seed to be used in this process (default: 10)
+	\item \texttt{-size [number]} -- the population size (default: 30). If this is omitted, \texttt{-population} must be present.
+	\item \texttt{-population [path to population file]} -- the starting population. If this is omitted, \texttt{-size} must be present.
+	\item \texttt{-maxGen [number]} -- the maximum number of generation (default: 100)
+	\item \texttt{-steadyGen [number]} -- the process would stop if this number of generation has passed without producing better fitness (default: 20)
+\end{itemize}
+
+The program would print the number of generations that have been processed to the standard output. Detailed data will also be printed to files, with \texttt{log.csv} containing summary result of each generation, and \texttt{data.csv} containing fitness values for each individual battle system. If the process stops successfully, it would produce two more files: \texttt{bestsys.json} for the resulting battle system, and \texttt{population.xml}, for the whole population of the last generation, which can be used as starting population for subsequent runs.
+
+\chapter{Game references}
+
+\printglossaries
+
+\chapter{Questionnaire}
+\label{app:questionnaire}
+
+\textbf{Google Forms} was used in our users study. All responses were collected from the online form. The print version of the instruction and the questionnaire are presented here.
+
+\includepdf[pages=-,pagecommand=\thispagestyle{plain},scale=0.7,frame=true]{resources/instruction.pdf}
+
+\includepdf[pages=-,pagecommand=\thispagestyle{plain},scale=0.7,frame=true]{resources/evaluation_form.pdf}

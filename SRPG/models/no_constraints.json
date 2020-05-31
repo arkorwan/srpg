@@ -1,0 +1,27 @@
+{
+    "party1Generator": {
+      "averageAttributeValues": 0.5,
+      "deviation": 0.3
+    },
+    "party2Generator": {
+      "averageAttributeValues": 0.5,
+      "deviation": 0.3
+    },
+    "weapon1Generator": {
+      "averageAttributeValues": 0.5,
+      "deviation": 0.3
+    },
+    "weapon2Generator": {
+      "averageAttributeValues": 0.5,
+      "deviation": 0.3
+    },
+    "armour1Generator": {
+      "averageAttributeValues": 0.5,
+      "deviation": 0.3
+    },
+    "armour2Generator": {
+      "averageAttributeValues": 0.5,
+      "deviation": 0.3
+    }
+}
+

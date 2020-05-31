@@ -1,0 +1,518 @@
+// hand-crafted system
+{
+  "unitMoveRange": {
+    "bz1x": {
+      "value": 0.43,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.20,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.57,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.80,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.80,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 5,
+      "min": 2,
+      "max": 5
+    }
+  },
+  "unitSpeed": {
+    "bz1x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 999,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitHP": {
+    "bz1x": {
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.67,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 999,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitMP": {
+    "bz1x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitPhysAttack": {
+    "bz1x": {
+      "value": 0.43,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.20,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.57,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.80,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.8,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitMagicAttack": {
+    "bz1x": {
+      "value": 0.43,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.20,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.57,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.80,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.8,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitPhysDefense": {
+    "bz1x": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.67,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.8,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitMagicDefense": {
+    "bz1x": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.67,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.8,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitEvasion": {
+    "bz1x": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.0,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.67,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.33,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.8,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "unitRisktaking": {
+    "bz1x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 99,
+      "min": 50,
+      "max": 999
+    }
+  },
+  "weaponPhysEnh": {
+    "bz1x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 3,
+      "min": 1,
+      "max": 5
+    }
+  },
+  "armourPhysEnh": {
+    "bz1x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "alpha": {
+      "value": 0.5,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 3,
+      "min": 1,
+      "max": 5
+    }
+  },
+  "maxBasicAttribute": {
+    "value": 20,
+    "min": 10,
+    "max": 100
+  },
+  "adjustableBasicAttribute": {
+    "value": 0.25,
+    "min": 0.01,
+    "max": 0.25
+  },
+  "maxMaterialAttribute": {
+    "value": 20,
+    "min": 10,
+    "max": 100
+  },
+  "eqMagicEnh": {
+    "bz1x": {
+      "value": 0.43,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz1y": {
+      "value": 0.20,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2x": {
+      "value": 0.57,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "bz2y": {
+      "value": 0.80,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "max": {
+      "value": 3,
+      "min": 1,
+      "max": 5
+    }
+  },
+  "weaponAttackMultipliers": {
+    "Bow": {
+      "value": 3.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Staff": {
+      "value": 1.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Sword": {
+      "value": 5.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Lance": {
+      "value": 3.5,
+      "min": 1.0,
+      "max": 5.0
+    }
+  },
+  "equipmentCarryingRatio": {
+    "value": 1.0,
+    "min": 0.25,
+    "max": 4.0
+  },
+  "meleeDefenseMultipliers": {
+    "Plate": {
+      "value": 5.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Robe": {
+      "value": 1.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Hide": {
+      "value": 2.0,
+      "min": 1.0,
+      "max": 5.0
+    }
+  },
+  "rangeDefenseMultipliers": {
+    "Plate": {
+      "value": 5.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Robe": {
+      "value": 1.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Hide": {
+      "value": 3.0,
+      "min": 1.0,
+      "max": 5.0
+    }
+  },
+  "magicDefenseMultipliers": {
+    "Plate": {
+      "value": 1.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Robe": {
+      "value": 3.0,
+      "min": 1.0,
+      "max": 5.0
+    },
+    "Hide": {
+      "value": 5.0,
+      "min": 1.0,
+      "max": 5.0
+    }
+  },
+  "elementalAdvantageMultiplier": {
+    "value": 2.0,
+    "min": 1.0,
+    "max": 100.0
+  },
+  "damageAtkMultiplier": {
+    "value": 0.5,
+    "min": 0.1,
+    "max": 10.0
+  },
+  "damageAtkDegree": {
+    "value": 1.0,
+    "min": 0.1,
+    "max": 3.0
+  },
+  "damageDiscountDegree": {
+    "value": 1.0,
+    "min": 0.1,
+    "max": 3.0
+  }
+}
+

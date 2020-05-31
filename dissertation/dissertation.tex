@@ -1,0 +1,155 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{lmodern} %Latin Modern
+\usepackage{xspace} 
+\usepackage{etoolbox}
+\usepackage[T1]{fontenc}
+\usepackage[page,toc]{appendix}
+\usepackage{graphicx}
+\usepackage{subcaption} %provide caption for each sub figure
+\usepackage[hyphens]{url}
+\usepackage{paralist} %inline list
+\usepackage{hyperref} %clickable links
+%Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+\usepackage[Bjornstrup]{fncychap}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{tikz}
+%ams
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[autolanguage]{numprint} % print formatted number
+%lcode isting
+\usepackage{listings}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+	backgroundcolor=\color{white},   % choose the background color
+	basicstyle=\footnotesize,        % size of fonts used for the code
+	breaklines=true,                 % automatic line breaking only at whitespace
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	keywordstyle=\color{blue},       % keyword style
+	stringstyle=\color{mymauve},     % string literal style
+}
+
+\usepackage[font={footnotesize}]{caption}
+\usepackage{color}
+%fancy framed box
+\usepackage{tcolorbox}
+\usepackage{pdfpages}
+\usepackage{biblatex}
+\bibliography{ref.bib}
+
+\usepackage{glossaries}
+
+\newcommand*\justify{%
+	\fontdimen2\font=0.4em% interword space
+	\fontdimen3\font=0.2em% interword stretch
+	\fontdimen4\font=0.1em% interword shrink
+	\fontdimen7\font=0.1em% extra space
+	\hyphenchar\font=`\-% allowing hyphenation
+}
+
+% numbers subsubsection
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{1}
+
+\title{Procedural Generation of Tactical RPG Battle Systems}
+\author{Worakarn Isaratham\\140024714}
+
+%macro to let later reference to values of \title and \author
+\makeatletter
+\let\inserttitle\@title
+\let\insertauthor\@author
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\input{./gloss.tex}
+
+\begin{document}
+
+%TC:ignore 
+
+\input{./title.tex}
+
+%%% PATCHES %%%
+% http://tex.stackexchange.com/questions/109708/initial-page-numbers-wrong
+\makeatletter
+% Patch `titlepage` not to reset the page number
+\patchcmd{\titlepage}{\setcounter{page}\@ne}{}{}{}
+\patchcmd{\endtitlepage}{\setcounter{page}\@ne}{}{}{}
+
+% Patch `abstract` so that it shows the page number
+\patchcmd{\abstract}{\titlepage}{\titlepage\thispagestyle{plain}}{}{}
+\makeatother
+%%% END PATCHES %%%
+
+\newcommand{\gameref}[1]{\emph{\gls{#1}}}
+
+\pagestyle{plain}
+\pagenumbering{roman}
+
+\renewcommand{\titlepage}{\relax}
+
+\renewcommand{\abstractname}{Declaration}
+\begin{abstract}
+	
+	I, Worakarn Isaratham, hereby certify that this dissertation, which is approximately \input|"./count.sh" words in length, has been written by me, and that it is the record of work carried out by me, or principally by myself in collaboration with others as acknowledged, and that it has not been submitted in any previous application for a higher degree. The higher study for which this is a record was carried out in the University of St Andrews during the current academic year.\\[2cm]
+	
+	\begin{flushright}
+		\rule{0.3\textwidth}{0.4pt}
+		
+		Worakarn Isaratham\\
+		\today
+	\end{flushright}
+\end{abstract}
+
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+	
+TBD
+	
+\end{abstract}
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+	
+Making games is expensive, and much of the resources is spent on creating game content. Procedural generation is a method that enables game content to be generated algorithmically and automatically, rather than manually. Common application of this technique is currently being used for low-level content such as textures, vegetation, clouds, game maps, road networks, or puzzles. This work attempted to apply procedural generation to a higher-level content, in the context of tactical role-playing games (TRPG). Central to games in this genre are turn-based battles between game characters, which resemble complex chess-like board games. The complexity of the battles arises from the variety of game characters, and the combat actions they can perform. Crucial to the enjoyment of the game is the balance between all the available choices of characters and actions, which we collectively call the battle system. Calibrating the system to be in balance is usually done manually. Instead, we created a prototype TRPG battle, and a procedure that algorithmically generates a well-balanced battle system for the prototype. An objective function was defined, based on self-play game AI, to evaluate all possible battle systems as numerical values. We then used genetic algorithm to optimise the objective function, to find the battle system that fits the objective best. Finally, we had human volunteers play the game running on various battle systems, to validate that the procedurally-optimised one is in good balance.
+	
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\justify
+
+%TC:endignore 
+
+\input{./c1_introduction.tex}
+\input{./c2_related_work.tex}
+\input{./c3_solution_design.tex}
+\input{./c4_implementation.tex}
+\input{./c6_evaluation.tex}
+\input{./c7_conclusion.tex}
+
+%TC:ignore 
+
+\begin{appendices}
+
+\input{./cx_appendix.tex}
+
+\end{appendices}
+\printbibliography
+
+%TC:endignore 
+
+\end{document}   

@@ -1,0 +1,47 @@
+\chapter{Conclusion}
+
+\section{Results and contribution}
+
+This project started out asking if it is possible to create balanced battle systems for tactical RPG games in an automatic manner. To answer this question, we developed a solution with that capability, working on a prototypical game which was created to represent the battle part of a generic tactical RPG. The solution basically uses a generate-and-test approach, relying on genetic algorithm to generate good quality solutions. The approach requires an evaluation function (fitness function), in this case the function evaluates how balanced a battle system is. `Balance' in our interpretation is `not overpowered', so an ideal battle system should not allow a certain class of units to be too powerful, capable of beating everyone else. A population of random battle systems are then generated and evaluated. New systems are created from the old population, potentially with better fitness with each passing generation.
+
+Computing the fitness of each battle system is a crucial part of this solution -- and in this case it is not trivial. Game content at this level of `game design', such as rules and mechanics -- including battle systems, are difficult to evaluate unless it is experienced in actual gameplays. The fitness function is therefore defined based on battle simulations, using a self-play AI. The quality of the fitness function depends directly on the quality of the AI, and we believe the AI we have built is quite competent.
+
+The solution was then evaluated, by asking human volunteers to validate a generated balanced battle system, in comparison to a reference system that we manually created. Our solution assessed the two systems and reported that the one it generated is more balanced, and most of the volunteers agreed with that. With this confirmation, we can say that our solution is successful in creating a well-balanced battle system for a tactical RPG, fulfilling our purpose from the start.
+
+\bigskip
+Our contribution consists of the following artefacts, which completes all our primary objectives and most of the secondary ones:
+\begin{itemize}
+	\item A game prototype that incorporate most aspects of general TRPG battles, including races and jobs systems, complete with a graphical user interface.
+	\item An AI that can play the game competently.
+	\item The solution -- a procedural generation program capable of generating balanced battle systems.
+\end{itemize}
+
+The one secondary objective we did not fully complete is the one that asks for more complex battle mechanics. This is partially met, as while the following have not been included:
+\begin{itemize}
+	\item items, 
+	\item equipment change,
+	\item advanced magic spells, such as status abnormalities, and
+	\item variation of terrain types,
+\end{itemize}
+We did, however, include the following extra elements to the game:
+\begin{itemize}
+	\item magic system as a rock-paper-scissors triangle of its own,
+	\item terrain height affecting the attack actions, and
+	\item complex turn order calculation.
+\end{itemize}
+
+In conclusion, we think this project is a success. We are able to create artefacts meeting most of the objectives, producing a battle system that is in balance, as validated from human perspectives.
+
+\section{Future work}
+
+In a sense, this project is a proof of concept that TRPG battle systems can be created using a procedural generation method. In this last section we suggest some directions that might improve this work further.
+
+\subsection{Prototype generalisation}
+
+The solution works on our battle prototype, which, though incorporating most aspects of TRPG battles, is still a single game. A simple extension would be to incorporate more elements into the prototype, or to parameterize more elements, turning them from being fixed parts of the game into parts of the battle system. Supporting more type of battle generator constraints is another possibility.
+
+A more ambitious effort would see the prototype being generalised to describe a wide range of TRPG battles. One possible approach is to follow the direction existing researches in this area have been pursuing, by defining game description language that can describe a whole game genre, and use general game playing techniques to develop the AI part.
+
+\subsection{Manifestation of the perception of balance}
+
+All our conclusive results are based on subjective evaluation, from words association. The part that were meant to be a precise, objective quantification instead gave a rather inconclusive result. We framed the question based on the hypothesis that if the volunteers can sense the existence of balance, they would response by forming their parties in a certain way. In hindsight, this might not be true. It is possible that there is no significant correlation between balance and party formation. It is also possible that the correlation exists, but not in the way we assumed. Another possibility is that the way the question was asked might not properly address the correlation. Further exploration in this relationship would definitely have a consequence in the strength of our results.
